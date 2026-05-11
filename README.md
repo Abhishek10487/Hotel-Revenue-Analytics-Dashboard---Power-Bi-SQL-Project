@@ -1,1 +1,1 @@
-# Hotel-Revenue-Analytics-Dashboard---Power-Bi-SQL-Project
+# Hotel-Revenue-Analytics-Dashboard- Power-Bi & SQL-Project

@@ -1,12 +1,15 @@
 # 🏨 Hotel Revenue Analytics Dashboard | Power BI & SQL Project
 
 ## 📌 Project Overview
+
 This project focuses on building an interactive **Hotel Revenue Analytics Dashboard** using **SQL** and **Power BI** to help stakeholders analyze hotel performance, revenue growth, parking demand, and seasonal trends.
 
 The dashboard transforms raw hotel booking data into meaningful business insights that support strategic decision-making.
 
+---
 
 # 🎯 Business Problem
+
 Hotel management wants to answer the following business questions:
 
 - Is hotel revenue growing year over year?
@@ -15,23 +18,34 @@ Hotel management wants to answer the following business questions:
 - How do Average Daily Rate (ADR) and occupancy change seasonally?
 - Which hotel type performs better?
 
+---
+
 # 📊 Dashboard Objectives
+
 - Analyze yearly hotel revenue growth
 - Compare performance by hotel type
 - Identify parking demand trends
 - Understand seasonality in bookings and ADR
 - Build interactive KPI dashboards for stakeholders
 
+---
+
 # 🛠️ Tools & Technologies Used
 
-| SQL Server / Data Cleaning & Transformation |
+| Tool | Purpose |
+|------|----------|
+| SQL Server / MySQL | Data Cleaning & Transformation |
 | Power BI | Dashboard & Visualization |
 | DAX | KPI Calculations |
 | Excel / CSV | Raw Dataset |
 | GitHub | Version Control |
 
+---
+
 # 📂 Dataset Information
+
 The dataset contains hotel booking information including:
+
 - Booking Dates
 - Hotel Type
 - Average Daily Rate (ADR)
@@ -46,6 +60,7 @@ The dataset contains hotel booking information including:
 - Resort Hotel
 - City Hotel
 
+---
 
 # 🏗️ Project Architecture
 
@@ -59,7 +74,7 @@ Data Modeling
 Power BI Dashboard
       ↓
 Business Insights & Recommendations
-
+```
 
 ---
 
@@ -73,7 +88,7 @@ UNION
 SELECT * FROM hotel_2019
 UNION
 SELECT * FROM hotel_2020;
-
+```
 
 ---
 
@@ -83,7 +98,7 @@ SELECT * FROM hotel_2020;
 UPDATE hotel_data
 SET children = 0
 WHERE children IS NULL;
-
+```
 
 ---
 
@@ -96,7 +111,7 @@ SELECT
     adr,
     (stays_in_week_nights + stays_in_weekend_nights) * adr AS revenue
 FROM hotel_data;
-
+```
 
 ---
 
@@ -109,7 +124,9 @@ LEFT JOIN market_segment m
 ON h.market_segment = m.market_segment
 LEFT JOIN meal_cost mc
 ON h.meal = mc.meal;
+```
 
+---
 
 # 📈 Power BI Dashboard Features
 
@@ -121,6 +138,8 @@ ON h.meal = mc.meal;
 - Occupancy %
 - Parking Requirement %
 - Cancellation Rate
+
+---
 
 # 📑 Dashboard Pages
 
@@ -137,6 +156,8 @@ ON h.meal = mc.meal;
 - Year-over-year revenue growth
 - Revenue comparison by hotel type
 
+---
+
 ## 2️⃣ Revenue Analysis Dashboard
 
 ### Visuals Included
@@ -149,6 +170,8 @@ ON h.meal = mc.meal;
 - Which hotel generates more revenue?
 - Which customer segment is most profitable?
 - What are the peak revenue months?
+
+---
 
 ## 3️⃣ Parking Lot Analysis
 
@@ -165,6 +188,8 @@ Analyze parking demand trends to determine if parking capacity should be increas
 - Peak demand occurs during holiday and weekend seasons
 - Additional parking may improve customer satisfaction
 
+---
+
 ## 4️⃣ Seasonal Trend Analysis
 
 ### Visuals Included
@@ -178,6 +203,7 @@ Analyze parking demand trends to determine if parking capacity should be increas
 - Summer months show highest occupancy
 - Off-season pricing optimization opportunities exist
 
+---
 
 # 🧮 Important DAX Measures
 
@@ -191,27 +217,38 @@ SUMX(
     hotel_data[stays_in_weekend_nights]) *
     hotel_data[adr]
 )
+```
 
-## Dax Average Daily Rate (ADR)
+---
 
+## Average Daily Rate (ADR)
+
+```DAX
 ADR =
 AVERAGE(hotel_data[adr])
+```
 
-## Dax Total Nights
+---
 
+## Total Nights
+
+```DAX
 Total Nights =
 SUM(hotel_data[stays_in_week_nights]) +
 SUM(hotel_data[stays_in_weekend_nights])
+```
 
+---
 
-## Dax Parking Percentage
+## Parking Percentage
 
+```DAX
 Parking % =
 DIVIDE(
     SUM(hotel_data[required_car_parking_spaces]),
     COUNT(hotel_data[reservation_status_date])
 )
-
+```
 
 ---
 
@@ -251,6 +288,8 @@ DIVIDE(
 ## Customer Retention
 - Focus on high-value customer segments
 - Launch loyalty and rewards programs
+
+```
 
 ---
 
@@ -294,10 +333,5 @@ The dashboard enables stakeholders to:
 
 ### Connect With Me
 - GitHub: https://github.com/Abhishek10487
-- LinkedIn: linkedin.com/in/abhishek-kumar-3b350923
-
----
-
-
-This project is licensed under the MIT License.
+- LinkedIn: https: https://www.linkedin.com/in/abhishek-kumar-3b350923/
 
